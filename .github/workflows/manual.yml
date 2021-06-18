@@ -22,6 +22,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: allow insecure commands
+        id: allowcommands
+        run: |
+          echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
+    
       - uses: actions/checkout@v2
         with:
           fetch-depth: 2
