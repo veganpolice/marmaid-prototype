@@ -14,6 +14,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 2
+          
+       - name: allow insecure commands
+        id: allowcommands
+        run: |
+          echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
+          
       - name: get changed files
         id: getfile
         run: |
