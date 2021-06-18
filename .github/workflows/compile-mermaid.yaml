@@ -13,8 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 2
-          
+          fetch-depth: 2 
        - name: allow insecure commands
         id: allowcommands
         run: |
