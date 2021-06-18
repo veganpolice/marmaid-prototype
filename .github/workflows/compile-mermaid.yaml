@@ -11,19 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2 
-     - name: allow insecure commands
+      - name: allow insecure commands
         id: allowcommands
         run: |
           echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
-          
+    
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       - name: get changed files
         id: getfile
         run: |
-          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -e '.*\.md$' -e '.*\.mermaid$' | xargs)"
-
+          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -e '.*\.md$' -e '.*\.mmd$' -e '.*\.mermaid$' | xargs)"
+    
       - name: mermaid files changed
         run: |
           echo ${{ steps.getfile.outputs.files }}
