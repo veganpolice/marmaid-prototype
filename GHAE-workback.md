@@ -9,7 +9,7 @@ Here is an inline mermaid file
 
 ```mermaid
 gantt
-    GAHE workback schedule
+    title GAHE workback schedule
     dateFormat  YYYY-MM-DD
     section Engineering M2 Workback Schedule (Matt Gibbs)	
     Pre-production M2 Build - service testing on bug bash instance (dev)                    :a1, 2021-06-07, 4d
